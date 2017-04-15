@@ -1,6 +1,8 @@
 # Stripe notifications via Slack
 
-PHP based background stripe notification system via slack
+PHP based background stripe notification system via slack. The result will be as follow:
+
+![stripe to slack](/img/slack.png)
 
 ## Getting Started
 
@@ -29,9 +31,24 @@ composer require JaouherK/stripe_to_slack
 ```
 download the [latest release] of Stripe and copy it in the folder api (https://github.com/stripe/stripe-php/releases). The binding will be via the `init.php` file.
 
+
+### Usage
+
+You can use the main file to adjust the display of specific events:
+example
+```
+"charge.succeeded" => array("lib" => "Customer successfully payed the amount", "disp" => 1),
+```
+Where `lib` is the text to be shown and `disp` is the possibility of sending this event to be shown in slack 0/1 value only
+
+The lib can include some extradetails from the sent Json file from Stripe
+```
+"customer.source.created" => array("lib" => "Customer " . $event_json->data->object->customer . " added a new " . $event_json->data->object->brand . " ending in " . $event_json->data->object->last4, "disp" => 1),
+```
+
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md]for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## License
 
