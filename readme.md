@@ -25,7 +25,7 @@ In Slack
 
 You can install the package using the Composer package manager. You can install it by running this command in your project root:
 ```
-composer require JaouherK/invoice-generator
+composer require JaouherK/stripe_to_slack
 ```
 download the [latest release] of Stripe and copy it in the folder api (https://github.com/stripe/stripe-php/releases). The binding will be via the `init.php` file.
 
