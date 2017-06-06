@@ -23,6 +23,12 @@ In Stripe
 In Slack
  - get your webhook ready using https://api.slack.com/incoming-webhooks
  
+ The acquired Keys or IDs should be inserted in the `config.php` file
+```
+define('STRIPE_API_KEY','your stripe key comes here');
+define('SLACK_HOOK_LINK','ID generated from https://api.slack.com/incoming-webhooks');
+```
+ 
 ### Installing
 
 You can install the package using the Composer package manager. You can install it by running this command in your project root:
@@ -34,17 +40,23 @@ download the [latest release] of Stripe and copy it in the folder api (https://g
 
 ### Usage
 
-You can use the main file to adjust the display of specific events:
+You can use the function get_events() in the main file to adjust the display of specific events:
 example
 ```
 "charge.succeeded" => array("lib" => "Customer successfully payed the amount", "disp" => 1),
 ```
 Where `lib` is the text to be shown and `disp` is the possibility of sending this event to be shown in slack 0/1 value only
 
-The lib can include some extradetails from the sent Json file from Stripe
+The lib can include some extra details from the sent Json file from Stripe
 ```
 "customer.source.created" => array("lib" => "Customer " . $event_json->data->object->customer . " added a new " . $event_json->data->object->brand . " ending in " . $event_json->data->object->last4, "disp" => 1),
 ```
+
+In order to tag people to be notified in Slack use the `config.php`
+```
+define('TAGS','your tagged people for notification instripe ie: @test');
+```
+If you are using more than one person to tag place them separated by a space (ie: `@test1 @test2`)
 
 ## Contributing
 
