@@ -17,10 +17,10 @@ $events = $s2->get_events($event_json);
 
 $eventInfo = $s2->get_event_info($events[$event_json->type],$event_json->type);
 
-$desc = $eventInfo['desc'];
-$disp = $eventInfo['disp'];
+$description = $eventInfo['desc'];
+$display_status = $eventInfo['disp'];
 
 
-if ($disp == 1) {
-    $s2->slack_notification($event_id,$desc);
+if ($display_status == 1) {
+    $s2->slack_notification($event_id, $description);
 }
