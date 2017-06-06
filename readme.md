@@ -40,7 +40,7 @@ download the [latest release] of Stripe and copy it in the folder api (https://g
 
 ### Usage
 
-You can use the function get_events() in the main file to adjust the display of specific events:
+You can use the function get_events() in the controller file to adjust the display of specific events:
 example
 ```
 "charge.succeeded" => array("lib" => "Customer successfully payed the amount", "disp" => 1),
